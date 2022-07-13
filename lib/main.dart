@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomePage(),
+      home: HomePage(),
       debugShowCheckedModeBanner: false,
     );
   }
@@ -55,7 +55,9 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("Home Page")),
-      body: getTela(selectedIndex),
+      body: Scaffold(
+        body: getTela(selectedIndex),
+      ),
       drawer: Drawer(
           child: ListView(
         padding: EdgeInsets.zero,
@@ -67,11 +69,15 @@ class _HomePageState extends State<HomePage> {
               )),
           ListTile(
             title: Text("Tela A"),
-            onTap: _onSelectedItem(1),
+            onTap: () {
+              _onSelectedItem(1);
+            },
           ),
           ListTile(
             title: Text("Tela B"),
-            onTap: _onSelectedItem(2),
+            onTap: () {
+              _onSelectedItem(2);
+            },
           )
         ],
       )),
